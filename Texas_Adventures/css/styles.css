@@ -1,0 +1,87 @@
+#hero{
+  
+}
+
+body{
+ overflow:scroll; 
+/* background-color:green;  */
+}
+#hero::after{
+    width:130%;
+    height: 150%;
+    content:'';
+    position: absolute;
+    z-index:10;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.35);
+}
+#hero video {
+    width: 130%;
+    height: 150%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:5;
+    object-fit: cover;
+    color:black;
+}
+
+
+#hero .caption{
+    position:relative;
+   margin-top: 10px;
+    z-index: 20;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Lobster', cursive;
+
+    padding-top: 10px;
+}
+
+form{
+    padding-bottom: 20px;
+}
+
+h1{
+    padding-top: 25px;
+}
+.card{
+    
+position:relative;
+ text-align: center;
+   height:50%;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 20px; /* Added */
+   opacity: .8; 
+   z-index: 20;
+   color:Black;
+   font-family: 'Lobster', cursive;
+   /* overflow:scroll; */
+}
+
+img {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    width: 50px;
+    height: 150px;
+  }
+  .z-index{
+      opacity: .6;
+      z-index:11;
+      position:fixed;
+      margin-top: 0;
+  }
+  .vid2{
+
+     width: 130%;
+    height: 150%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:5;
+    object-fit: cover;
+  }
