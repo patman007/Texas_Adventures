@@ -3,7 +3,7 @@
 }
 
 body{
- overflow:scroll; 
+ overflow:hidden scroll; 
 /* background-color:green;  */
 }
 #hero::after{
@@ -72,8 +72,8 @@ img {
   .z-index{
       opacity: .6;
       z-index:11;
-      position:fixed;
-      margin-top: 0;
+      /* position: fixed;
+      margin-top: 0; */
   }
   .vid2{
 
@@ -84,4 +84,13 @@ img {
     left:0;
     z-index:5;
     object-fit: cover;
+  }
+
+  .linkwords{
+      color:black;
+  }
+
+  .navposition{
+    position: fixed;
+      margin-top: 0;
   }

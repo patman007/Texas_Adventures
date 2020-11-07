@@ -43,11 +43,11 @@ btn.addEventListener('click', event  => {
     
     .then(data =>  {        
         console.log('data is : ', data )       
-        city.innerHTML = data.name  
-        city_id.innerHTML = data.id                     
-        temp.innerHTML = data.main.temp        
-        lat.innerHTML = data.coord.lat
-        long.innerHTML = data.coord.lon                      
+        city.innerHTML = 'City: '+data.name
+        city_id.innerHTML = 'City ID: '+data.id                     
+        temp.innerHTML = 'Temperature: '+ data.main.temp        
+        lat.innerHTML = 'Latitude: '+data.coord.lat
+        long.innerHTML = 'Longitude: '+data.coord.lon                      
     })           
                                          
 
