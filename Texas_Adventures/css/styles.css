@@ -1,9 +1,8 @@
-#hero{
-  
-}
+
 
 body{
  overflow:hidden scroll; 
+
 /* background-color:green;  */
 }
 #hero::after{
@@ -50,7 +49,8 @@ h1{
 .card{
     
 position:relative;
- text-align: center;
+ align-items: center;
+ justify-content: center;
    height:50%;
     margin: 0 auto; /* Added */
     float: none; /* Added */
@@ -59,6 +59,7 @@ position:relative;
    z-index: 20;
    color:Black;
    font-family: 'Lobster', cursive;
+   border: solid red 3px;
    /* overflow:scroll; */
 }
 
@@ -71,9 +72,8 @@ img {
   }
   .z-index{
       opacity: .6;
-      z-index:11;
-      /* position: fixed;
-      margin-top: 0; */
+      z-index:21;
+    
   }
   .vid2{
 
@@ -93,4 +93,5 @@ img {
   .navposition{
     position: fixed;
       margin-top: 0;
+      padding-top: 0;
   }
