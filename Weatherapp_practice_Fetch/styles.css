@@ -5,3 +5,8 @@ body {
 #City{
     color: lightgreen;
 }
+
+p {
+    font-weight: bold;
+}
+
