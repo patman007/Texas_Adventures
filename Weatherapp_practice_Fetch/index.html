@@ -18,17 +18,28 @@
     <body>
     <form name="theForm" method="get">
         <div class="container">
+            <!--Weather API information-->
             <p id="city"></p> 
-            <p id="city_id"></p>          
-            <p id="temp"></p>
+            <p id="city_id"></p>  
             <p id="lat"></p>
-            <p id="long"></p>
+            <p id="long"></p>        
+            <p id="temp"></p>
+            <p id="humidity"></p>
+            <p id="wind"></p>            
 
+            <!--National Park information-->
+            <div class="Parks">
+                <p id="fullName"></p>               
+               <strong> <a id="parkWebsite"></a>  </strong>              
+                <p id="description"></p>
+                <p id="mailing"></p>
+                <p id="parkAddress"></p>
+                <p id="stateCode"></p>
+                <p id="zip"></p> 
+            </div>           
             <input type="submit" id="btn" value="Check city"></input>
         </div> 
-    </form>    
-
-       
+    </form>           
         <script src="script.js"></script>
     </body>
 </html>
