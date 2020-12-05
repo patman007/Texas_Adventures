@@ -1,8 +1,24 @@
 <%- include('partials/header')%>
-
-
-
-
+<div class="caption">
+<div>
+<h1>Here is your park</h1>
+<div class="results">
+<div>
+<strong>
+<img src="<%=results.park.images[0].url%>" style="position:relative;">
+<p>Credit: <%=results.park.images[0].credit%></p>
+<p>Park name: <%= results.park.fullName %></p>
+<p>location: <%=results.weatherdata.name%> </p>
+<p>Park Description:</p>
+<p><%= results.park.description %></p>
+<p>Skies: <%= results.weatherdata.weather[0].description %></p>
+<p>Degrees: <%= results.weatherdata.main.temp %> F <br> Feels like:<%= results.weatherdata.main.feels_like%> F</p>
+<p>Highs and lows: <br>High <%= results.weatherdata.main.temp_max %> F <br>Low <%= results.weatherdata.main.temp_min%> F</p>
+</strong>
+</div>
+</div>
+</div>
+</div>
 
 
 
