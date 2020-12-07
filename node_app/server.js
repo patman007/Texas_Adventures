@@ -69,7 +69,10 @@ let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
             var results={weatherdata,park}
             //sending our results into our results ejs
             console.log(data)
-            res.render('results.ejs',{results})
+          // ned if statement to match with both apis 
+                 res.render('results.ejs',{results})
+            
+           
             })
             .catch(err=>{
                 console.log('Error connecting to api: ', err)
@@ -121,7 +124,7 @@ app.get('/random',(req,res)=>{
                 })
                 .catch(err=>{
                     console.log('Error recieving data from weather api: ', err)
-                    res.render('error.ejs')
+                  
                 })
                 
      })

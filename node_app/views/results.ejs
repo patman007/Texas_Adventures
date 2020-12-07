@@ -14,6 +14,12 @@
 <p>Skies: <%= results.weatherdata.weather[0].description %></p>
 <p>Degrees: <%= results.weatherdata.main.temp %> F <br> Feels like:<%= results.weatherdata.main.feels_like%> F</p>
 <p>Highs and lows: <br>High <%= results.weatherdata.main.temp_max %> F <br>Low <%= results.weatherdata.main.temp_min%> F</p>
+<form action="/favorites" method="GET">
+<button class="btn btn-primary">Save to Favorites</button>
+</form>
+<form action="/random">
+<button class="btn btn-success">Next Park</button>
+</form>
 </strong>
 </div>
 </div>
