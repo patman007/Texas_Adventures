@@ -16,14 +16,21 @@ app.use(express.static('public'))
 PORT= process.env.PORT || 3000
 
 
-  // https://developer.nps.gov/api/v1/parks?stateCode=texas&api_key=hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi
+// https://developer.nps.gov/api/v1/parks?stateCode=TX&api_key=hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi
 //   let pApi_Key = 'pmBnVo1MoSqhZcTEhSBPhAxdaS5GQvG0lPyDCvRY'
+// National Park API
 let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
-  let parksUrl = `https://developer.nps.gov/api/v1/parks?stateCode=TX&api_key=${pApi_Key}`
-  let fullData=[]
-  // Weather API
-  let wApi_Key = '27fe525266ca77d7607f290c665c9860';
-  let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=CITY_NAME&units=imperial&appid=${wApi_Key}`
+let parksUrl = `https://developer.nps.gov/api/v1/parks?stateCode=TX&api_key=${pApi_Key}`
+let fullData=[]
+// Weather API
+let wApi_Key = '27fe525266ca77d7607f290c665c9860';
+let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=CITY_NAME&units=imperial&appid=${wApi_Key}`
+
+//Current and Hourly Updates API if we need it
+//Fritch
+// let url='https://api.openweathermap.org/data/2.5/onecall?lat=35.64&lon=-101.6&units=imperial&exclude=minutely,alerts,daily&appid=27fe525266ca77d7607f290c665c9860'
+
+//Root Handlers
 app.get('/', (req,res)=>{
     res.render('login.ejs')
 })
@@ -40,7 +47,7 @@ console.log(city)
 let wApi_Key = '27fe525266ca77d7607f290c665c9860';
 let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${wApi_Key}`
 let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
-  let parksUrl = `https://developer.nps.gov/api/v1/parks?stateCode=TX&q=${city}&api_key=${pApi_Key}`
+let parksUrl = `https://developer.nps.gov/api/v1/parks?stateCode=TX&q=${city}&api_key=${pApi_Key}`
 // console.log(parksUrl)
 
 // calling parks url
@@ -49,7 +56,7 @@ let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
   .then(response=>{
         // console.log(response.data.data[0])
         // if the results turn up as a non existent city or 0 we will be redirected to the error page
-      if(response.data.total <=0 ){
+      if(response.data.total <= 0 ){
           throw Error('No data recieved not a valid city or no parks fouond ')
       }else{
           //returning response
@@ -59,7 +66,7 @@ let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
   .then(data=>{
     let park= data
     //   console.log(data)
-                // calling out weather api
+          // calling out weather api
                 axios.get(weatherUrl)
             .then(response=>{
             return response.data
@@ -81,7 +88,7 @@ let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
   })
   .catch(err=>{
       console.log('No city found: ', err)
-    
+
       res.render('error.ejs')
   })
 
@@ -89,7 +96,7 @@ let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
 })
 
 app.get('/random',(req,res)=>{
- 
+
     axios.get(parksUrl)
     .then(response=> {
         if(response.data.total <=0 ){
@@ -100,7 +107,7 @@ app.get('/random',(req,res)=>{
         }
     })
     .then(data=>{
-       
+
          var randomCityIndex = Math.floor(Math.random()*data.length -1 ) + 1
          // console.log('This is the index:',data.data[randomCityIndex])
             // console.log(data.length)
@@ -109,7 +116,7 @@ app.get('/random',(req,res)=>{
            let park= data[randomCityIndex]
          console.log(park)
         // console.log(data.data[randomCityIndex])
-            
+
          let wApi_Key = '27fe525266ca77d7607f290c665c9860';
          let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${City}&units=imperial&appid=${wApi_Key}`
 
@@ -126,18 +133,64 @@ app.get('/random',(req,res)=>{
                     console.log('Error recieving data from weather api: ', err)
                   
                 })
-                
+
      })
     .catch(err=>{
          console.log('Error connecting to api: ', err)
         res.render('error.ejs')
 
      })
-    });
+});
 
+    app.get('/favoritepage/:id', (req, res) => {
+        let city= req.query.city
+        console.log(city)
+        let wApi_Key = '27fe525266ca77d7607f290c665c9860';
+        let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${wApi_Key}`
+        let pApi_Key = 'hNdp9FdWfJRXxC48PNwvA1ffZxzbokHVs2P7Dzfi'
+          let parksUrl = `https://developer.nps.gov/api/v1/parks?stateCode=TX&q=${city}&api_key=${pApi_Key}`
+        // console.log(parksUrl)
 
+        // calling parks url
+          axios.get(parksUrl)
+        // digging into the response to get our data object
+          .then(response=>{
+                // console.log(response.data.data[0])
+                // if the results turn up as a non existent city or 0 we will be redirected to the error page
+              if(response.data.total <= 0 ){
+                  res.send({code: 400,
+                    message: 'No data recieved not a valid city or no parks found '})
+              }else{
+                  //returning response
+              return response.data.data[0]
+              }
+          })
+          .then(data=>{
+            let park= data
+            //   console.log(data)
+                        // calling out weather api
+                        axios.get(weatherUrl)
+                    .then(response=>{
+                    return response.data
+                    })
+                    .then(weatherdata=>{
+                    console.log(weatherdata)
+                    var results={weatherdata,park}
+                    //sending our results into our results ejs
+                    console.log(data)
+                    res.render('favoritepage.ejs',{results})
+                    })
+                    .catch(err=>{
+                        console.log('Error connecting to api: ', err)
+                        res.render('error.ejs')
+                    })
+          })
+          .catch(err=>{
+              console.log('No city found: ', err)
 
-
+              res.render('error.ejs')
+          })
+    })
 
 
 app.listen(PORT,()=>{

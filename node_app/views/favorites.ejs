@@ -1,17 +1,19 @@
 <%- include('partials/header')%>
 
-
 <div class="caption">
-<h1>These are your favorites!!!!</h1>
-
-
-<form action="/search">
+  <div>
+    <h1>Favorites</h1>
+    <div class="results">
+      <div>
+        <strong>
+            <h4>Parks</h4>
+            <div id="myfavorites"></div>
+        </strong>
+        <form action="/search">
 <button class="btn btn-primary">Back to search!!!</button>
 </form>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-
 <%- include('partials/footer')%>

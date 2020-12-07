@@ -1,5 +1,30 @@
+body {
+  overflow: hidden scroll;
 
+  /* background-color:green;  */
+}
+#hero::after {
+  width: 100%;
+  height: 150%;
+  content: "";
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+#hero video {
+  width: 100%;
+  height: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  object-fit: cover;
+  color: black;
+}
 
+<<<<<<< HEAD
 body{
     overflow:hidden scroll; 
    
@@ -107,3 +132,94 @@ body{
          width:400px;
      }
    
+=======
+#hero .caption {
+  position: relative;
+  margin-top: 10px;
+  z-index: 20;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  font-family: "Lobster", cursive;
+
+  padding-top: 10px;
+}
+
+form {
+  padding-bottom: 20px;
+}
+
+h1 {
+  padding-top: 30px;
+}
+.card {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 20px; /* Added */
+  opacity: 0.8;
+  z-index: 20;
+  color: Black;
+  font-family: "Lobster", cursive;
+  border: solid red 3px;
+  /* overflow:scroll; */
+}
+
+img {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 200px;
+  height: 250px;
+}
+.z-index {
+  opacity: 0.6;
+  z-index: 21;
+}
+.vid2 {
+  width: 130%;
+  height: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  object-fit: cover;
+}
+
+.linkwords {
+  color: black;
+}
+
+.navposition {
+  position: fixed;
+  margin-top: 0;
+  padding-top: 0;
+}
+.results {
+  color: darkblue;
+  background: white;
+  border: lightgreen solid 5px;
+  opacity: 0.86;
+}
+
+/*Checkbox in the shape of a star */
+/* .favorite-form {
+  visibility: hidden;
+  font-size: 45px;
+  color: gold;
+  cursor: pointer;
+}
+
+.favorite-form:before {
+  content: "\2606";
+  position: absolute;
+  visibility: visible;
+}
+
+.favorite-form:checked:before {
+  content: "\2605";
+  position: absolute;
+} */
+>>>>>>> 2adc26cd73746a7ce3264c81f24acebcf959b2df
