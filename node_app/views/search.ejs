@@ -1,24 +1,26 @@
 <%- include('partials/header')%>
 
 <div class="caption">
-      
-    <h1>Texas Adventure App</h1>
-   <form class="form-inline my-2 my-lg-0 caption" action="/random" method="GET">
-       
-        <label for="random">Randomize your experience: </label>
-    
-       <button class="btn btn-success" type="submit" id="random"name="random" value="random" >
-         Your Next Adventure 
-       </button>
-     </form>
-     <form action="/city" method="GET">
+  <h1>Texas Adventure App</h1>
+  <form class="form-inline my-2 my-lg-0 caption" action="/random" method="GET">
+    <label for="random">Randomize your experience: </label>
 
-        <label for="city">Chose your city:</label>
-        <input type="text" placeholder="Enter your city" id="city" name="city">
+    <button
+      class="btn btn-success"
+      type="submit"
+      id="random"
+      name="random"
+      value="random"
+    >
+      Your Next Adventure
+    </button>
+  </form>
+  <form action="/city" method="GET">
+    <label for="city">Chose your city:</label>
+    <input type="text" placeholder="Enter your city" id="city" name="city" />
 
-
-        <button class="btn btn-success" type="submit" >Submit</button>
-     </form>
- </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>
 
 <%- include('partials/footer')%>

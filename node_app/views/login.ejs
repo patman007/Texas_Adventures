@@ -1,18 +1,28 @@
 <%- include('partials/loginheader')%>
 
 <div class="caption">
-<h1 >Log in</h1>
-<form action="/search" method="GET" class="form-inline my-2 my-lg-0 caption">
-    <label for="">User Name:</label>
-    <input type="text" placeholder="Username">
-    <label for="">Password:</label>
-    <input type="password" placeholder="Password">
-    
-    <button class="btn btn-success" type="submit">Submit</button>
-    
-</form>
+    <h1>Log in</h1>
+    <form action="/search" method="GET" class="form-inline my-2 my-lg-0 caption">
+        <label for="">User Name:</label>
+        <input type="text" placeholder="Username"
+        pattern="^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$" />
+        <small>E.g. ( vishal.mehta | vishal12.12 | vishal08 )</small><br />
 
+        <!-- Description
+        This Regex allows usernames with or without special char .-->
+
+        <label for="">Password:</label>
+        <input type="password" placeholder="Password"
+        pattern="(?-i)(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))(?=(1)(?=.*\d)|.*[^A-Za-z0-9])^.*$"/>
+        <small>E.g a3dAbed. | P@ssword1 | myPassw0rd!</small><br />
+
+        <!-- Password Description
+        Strong password with the following requirements. -
+        At least 8 characters long. - At least 1 uppercase, AND at least 1 lowercase -
+        At least 1 digit OR at least 1 alphanumeric. - No spaces. -->
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
 </div>
-
 
 <%- include('partials/footer')%>
