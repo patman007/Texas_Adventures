@@ -1,2 +1,2 @@
 # Texas_Adventures
-This is our Texas Adventure project. 
+Texas Adventures App using APIs with Node.js (Ongoing) 
