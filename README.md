@@ -1,2 +1,2 @@
 # Texas_Adventures
-Texas Adventures App using APIs with Node.js (Ongoing) 
+Texas Adventures App using APIs with Node.js 
